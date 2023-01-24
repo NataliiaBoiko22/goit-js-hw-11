@@ -15,8 +15,6 @@ export const fetchApi = async function (query, options, page) {
       },
     });
 
-    totalPages = Math.ceil(response.data.totalHits / 40);
-
     if (page === 1) {
       Notify.success(`Hooray! We found ${response.data.totalHits} images.`, {
         position: 'right-top',
@@ -30,8 +28,6 @@ export const fetchApi = async function (query, options, page) {
         }
       );
     }
-    // console.log(totalPages);
-    // console.log(response.data.hits);
     return response.data.hits;
   } catch (error) {
     console.log(error);

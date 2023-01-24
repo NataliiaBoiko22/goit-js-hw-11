@@ -7,7 +7,6 @@ const galleryItem = document.querySelector('.gallery');
 const searchForm = document.querySelector('.search-form');
 const searchInput = document.querySelector('.search-form__input');
 const infinityItem = document.querySelector('.footer');
-
 let page = 1;
 const lightbox = new SimpleLightbox('.gallery .gallery-item');
 const onSearch = async function () {
@@ -18,7 +17,6 @@ const onSearch = async function () {
   console.log(dataFromApi);
   renderGallery(dataFromApi);
   infinityObserver.observe(infinityItem);
-  // return;
 };
 function renderGallery(dataFromApi) {
   let item = '';
@@ -63,12 +61,12 @@ const infinityObserver = new IntersectionObserver(async function (
 ) {
   if (entries[0].isIntersecting === false) return;
   const query = searchInput.value;
+
   page += 1;
   console.log(page);
-  const dataFromApi = await fetchApi(query, {}, page, totalPages);
-  console.log(totalPages);
+  const dataFromApi = await fetchApi(query, {}, page);
   renderGallery(dataFromApi);
-  if (page === totalPages) {
+  if (page === 13) {
     Notify.info("We're sorry, but you've reached the end of search results.", {
       position: 'right-bottom',
     });
