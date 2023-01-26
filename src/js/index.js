@@ -14,7 +14,7 @@ let per_page = 40;
 const lightbox = new SimpleLightbox('.gallery .gallery-item');
 function onSearch() {
   let query = searchInput.value;
-
+  infinityObserver.unobserve(infinityItem);
   if (query === lastQuery) {
     return;
   } else {
