@@ -67,7 +67,7 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   galleryItem.innerHTML = '';
 
-  query = searchInput.value;
+  let query = searchInput.value;
   if (query !== '') {
     page = 1;
     onSearch();
