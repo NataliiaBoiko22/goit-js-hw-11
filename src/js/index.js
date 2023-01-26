@@ -13,7 +13,7 @@ let per_page = 40;
 
 const lightbox = new SimpleLightbox('.gallery .gallery-item');
 function onSearch() {
-  const query = searchInput.value;
+  let query = searchInput.value;
 
   if (query === lastQuery) {
     return;
@@ -67,7 +67,7 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   galleryItem.innerHTML = '';
 
-  const query = searchInput.value;
+  let query = searchInput.value;
   if (query !== '') {
     page = 1;
     onSearch();
