@@ -28,7 +28,7 @@ export const fetchApi = async function (query, options, page) {
         }
       );
     }
-    return response.data.hits;
+    return response;
   } catch (error) {
     console.log(error);
   }
